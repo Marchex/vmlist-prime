@@ -5,3 +5,4 @@ app/**/*.js
 *.d.ts
 *.DS_Store
 typings
+.idea/

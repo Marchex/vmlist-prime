@@ -1,16 +1,16 @@
 import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
-import {Car} from '../../app/cars/car';
+import {KvmHost} from './kvmhosts/kvmhost';
 
 @Injectable()
-export class CarService {
+export class KvmHostService {
 
     constructor(private http: Http) {}
 
-    getCarsMedium() {
-        return this.http.get('app/resources/data/cars-medium.json')
+    getKvmHosts() {
+        return this.http.get('app/resources/data/hosts_and_guests.json')
                     .toPromise()
-                    .then(res => <Car[]> res.json().data)
+                    .then(res => <KvmHost[]> res.json().data)
                     .then(data => { return data; });
     }
 }

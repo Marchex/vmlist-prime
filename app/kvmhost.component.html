@@ -1,0 +1,51 @@
+<datatable-demos></datatable-demos>
+
+<div class="ContentSideSections">
+    <div class="Content100 overHidden TextShadow">
+        <span class="fontSize30 TextShadow orange mediumFont marginBottom20 dispBlock">PrimeNG Sample with System.js</span>
+        <span class="defaultText dispTable">This sample demonstrates a sample setup using System.js.</span>
+    </div>
+</div>
+
+<div class="ContentSideSections Implementation">
+    <p-dataTable [value]="kvmhosts" selectionMode="single" [(selection)]="selectedKvmHost" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="10" [responsive]="true">
+        <header>Click KVM Host Name for VM list</header>
+        <p-column field="name" header="Name" [sortable]="true"></p-column>
+        <p-column field="platform" header="OS" [sortable]="true"></p-column>
+        <p-column field="use" header="Use" [sortable]="true"></p-column>
+        <p-column field="cpu_total" header="Core allocation" [sortable]="true"></p-column>
+        <p-column field="memory" header="Memory allocation" [sortable]="true"></p-column>
+        <footer><div class="ui-helper-clearfix" style="width:100%"><button type="button" pButton icon="fa-plus" style="float:left" (click)="showDialogToAdd()" label="Add"></button></div></footer>
+    </p-dataTable>
+
+    <p-dialog header="KVMHost Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true">
+        <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad" *ngIf="kvmhost">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4"><label for="name">Name</label></div>
+                <div class="ui-grid-col-8"><input pInputText id="name" [(ngModel)]="kvmhost.name" /></div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4"><label for="os">OS</label></div>
+                <div class="ui-grid-col-8"><input pInputText id="os" [(ngModel)]="kvmhost.platform" /></div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4"><label for="use">Use</label></div>
+                <div class="ui-grid-col-8"><input pInputText id="use" [(ngModel)]="kvmhost.use" /></div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4"><label for="corealloc">Core Allocation</label></div>
+                <div class="ui-grid-col-8"><input pInputText id="corealloc" [(ngModel)]="kvmhost.cpu_total" /></div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4"><label for="memalloc">Core Allocation</label></div>
+                <div class="ui-grid-col-8"><input pInputText id="memalloc" [(ngModel)]="kvmhost.memory" /></div>
+            </div>
+        </div>
+        <footer>
+            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                <button type="button" pButton icon="fa-close" (click)="delete()" label="Delete"></button>
+                <button type="button" pButton icon="fa-check" (click)="save()" label="Save"></button>
+            </div>
+        </footer>
+    </p-dialog>
+</div>
