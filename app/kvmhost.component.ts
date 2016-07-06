@@ -1,14 +1,14 @@
 import {Component} from '@angular/core';
 import {HTTP_PROVIDERS} from '@angular/http';
-import {InputText,DataTable,Button,Dialog,Column,Header,Footer,TreeTable} from 'primeng/primeng';
+import {InputText,DataTable,Button,Dialog,Column,Header,Footer} from 'primeng/primeng';
 import {KvmHost} from './kvmhosts/kvmhost';
 import {KvmHostService} from './kvmhosts/kvmhostservice';
 
 
 @Component({
 	templateUrl: 'app/kvmhost.component.html',
-	selector: 'my-app',
-    directives: [InputText,DataTable,Button,Dialog,Column,Header,Footer,TreeTable],
+	selector: 'kvm-hosts',
+    directives: [InputText,DataTable,Button,Dialog,Column,Header,Footer],
 	providers: [HTTP_PROVIDERS,KvmHostService]
 })
 export class KvmHostComponent {
@@ -26,6 +26,7 @@ export class KvmHostComponent {
         this.kvmhostService.getKvmHosts().then(s => this.kvmhosts = s);
 
         this.cols = [
+            {field: 'chef_server', header: 'Chef Server'},
             {field: 'name', header: 'Name'},
             {field: 'os', header: 'OS'},
             {field: 'use', header: 'Infra code'},
@@ -82,7 +83,9 @@ export class KvmHostComponent {
 class PrimeKvmHost implements KvmHost {
 
     constructor(
+        public chef_server?,
         public name?,
+        public os?,
         public cpu_total?,
         public guest_cpu_total?,
         public memory?,

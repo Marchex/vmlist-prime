@@ -1,5 +1,7 @@
 export interface KvmHost {
+    chef_server;
     name;
+    os;
     cpu_total;
     guest_cpu_total;
     memory;
