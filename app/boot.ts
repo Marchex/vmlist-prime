@@ -1,9 +1,9 @@
 import {bootstrap} from '@angular/platform-browser-dynamic';
-import {KvmHostComponent} from './kvmhost.component';
+import {MainComponent} from './main.component';
 import {disableDeprecatedForms, provideForms} from '@angular/forms';
 import 'rxjs/Rx';
 
-bootstrap(KvmHostComponent, [
+bootstrap(MainComponent, [
     disableDeprecatedForms(),
     provideForms()
 ]);
