@@ -1,5 +1,5 @@
-# PrimeNG
-Sample application to provide an example setup of an Angular2 project with PrimeNG.
+# VMList Prime
+A refactored VMList using Angulatr 2 and the PrimeNG.
 
 ![alt text](http://www.primefaces.org/images/primeng.png "PrimeNG")
 
